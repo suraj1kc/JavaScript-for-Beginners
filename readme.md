@@ -1,6 +1,6 @@
-# Advanced JavaScript Curriculum
+# JavaScript Basics and Advanced Concepts
 
-> A comprehensive guide covering client-side scripting and advanced JavaScript concepts
+> A comprehensive guide covering client-side scripting basic and advanced JavaScript concepts
 
 ## Table of Contents
 

@@ -225,6 +225,13 @@ let modernVariable = "new way";
 const CONSTANT_VALUE = "cannot be reassigned";
 ```
 
+#### Rules for Variable Names
+
+- Must start with a letter, underscore, or dollar sign
+- Can contain letters, numbers, underscores, and dollar signs
+- Case-sensitive (`name` and `Name` are different)
+- Cannot use reserved keywords (`let`, `function`, etc.)
+
 #### Data Types
 
 1. **Primitive Types:**

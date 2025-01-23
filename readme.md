@@ -8,19 +8,19 @@ This document provides a comprehensive overview of JavaScript fundamentals, cove
 
 ## Table of Contents
 
-1.  [History of JavaScript](#history-of-javascript)
-2.  [Introduction to JavaScript](#introduction-to-javascript)
-3.  [Using JavaScript in HTML](#using-javascript-in-html)
-4.  [JavaScript Output](#javascript-output)
-5.  [JavaScript Comments](#javascript-comments)
-6.  [Variables in JavaScript](#variables-in-javascript)
-7.  [Data Types in JavaScript](#data-types-in-javascript)
-8.  [Operators and Expressions](#operators-and-expressions)
-9.  [Control Flow and Conditionals](#control-flow-and-conditionals)
-10. [Loops](#loops)
-11. [Functions](#functions)
-12. [Arrays](#arrays)
-13. [Objects](#objects)
+1.  [History of JavaScript](#1-history-of-javascript)
+2.  [Introduction to JavaScript](#2-introduction-to-javascript)
+3.  [Using JavaScript in HTML](#3-using-javascript-in-html)
+4.  [JavaScript Output](#4-javascript-output)
+5.  [JavaScript Comments](#5-javascript-comments)
+6.  [Variables in JavaScript](#6-variables-in-javascript)
+7.  [Data Types in JavaScript](#7-data-types-in-javascript)
+8.  [Operators and Expressions](#8-operators-and-expressions)
+9.  [Control Flow and Conditionals](#9-control-flow-and-conditionals)
+10. [Loops](#10-loops)
+11. [Functions](#11-functions)
+12. [Arrays](#12-arrays)
+13. [Objects](#13-objects)
 
 ## 1. History of JavaScript
 

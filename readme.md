@@ -945,15 +945,14 @@ Objects store collections of key-value pairs.
     - `Object.keys()`: Returns keys as an array
     - `Object.values()`: Returns values as an array
     - `Object.entries()`: Returns key-value pairs as an array
-    ````javascript
+    ```javascript
     for (let key in person) {
-        ```markdown
-    console.log(key + ": " + person[key]);
+      console.log(key + ": " + person[key]);
     }
     let keys = Object.keys(person);
     let values = Object.values(person);
     let entries = Object.entries(person);
-    ````
+    ```
 10. **Object Prototypes**:
 
     - Objects inherit properties and methods from their prototype.

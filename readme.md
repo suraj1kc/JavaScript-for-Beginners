@@ -1073,11 +1073,3 @@ Objects store collections of key-value pairs.
     let person5 = new Person("Sarah", 29);
     console.log(person5.greet());
     ```
-
-```
-
-```
-
-```
-
-```

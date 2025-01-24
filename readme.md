@@ -405,6 +405,8 @@ JavaScript variables hold various data types, categorized as:
   console.log(typeof greet); // Output: function
   ```
 
+---
+
 - **String Indexing**:
 
   - Access characters in a string using their index (0-based).

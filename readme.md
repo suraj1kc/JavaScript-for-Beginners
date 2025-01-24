@@ -373,7 +373,7 @@ JavaScript variables hold various data types, categorized as:
   console.log(typeof id); // Output: symbol
   ```
 
-- ** String Indexing **:
+- **String Indexing**:
 
 - Access characters in a string using their index (0-based).
 
@@ -383,7 +383,7 @@ console.log(greeting[0]); // Output: H
 console.log(greeting.charAt(1)); // Output: e
 ```
 
-- ** String Methods **:
+- **String Methods**:
 
 - `length`: Returns the length of the string.
 
@@ -425,7 +425,7 @@ console.log(greeting.replace("Hello", "Hi")); // Output: Hi
 console.log(greeting.split("")); // Output: ["H", "e", "l", "l", "o"]
 ```
 
--** Type Conversion **:
+- **Type Conversion**:
 
 - Convert values to strings using `String()`, `toString()`, or template literals.
 
@@ -436,7 +436,7 @@ console.log(num.toString()); // Output: "10"
 console.log(`${num}`); // Output: "10"
 ```
 
-- ** String Concatenation **:
+- **String Concatenation**:
 
 - Combine strings using the `+` operator or `concat()` method.
 
@@ -448,7 +448,7 @@ console.log(fullName);
 console.log(firstName.concat(" ", lastName)); // Output: "John Doe"
 ```
 
-- ** Template Strings **:
+- **Template Strings**:
 
 - Use backticks (`` ` ``) for template literals, allowing for easier string interpolation.
 

@@ -375,88 +375,94 @@ JavaScript variables hold various data types, categorized as:
 
 - **String Indexing**:
 
-- Access characters in a string using their index (0-based).
+  - Access characters in a string using their index (0-based).
 
-```javascript
-var greeting = "Hello";
-console.log(greeting[0]); // Output: H
-console.log(greeting.charAt(1)); // Output: e
-```
+  ```javascript
+  var greeting = "Hello";
+  console.log(greeting[0]); // Output: H
+  console.log(greeting.charAt(1)); // Output: e
+  ```
 
 - **String Methods**:
 
-- `length`: Returns the length of the string.
+  - `length`: Returns the length of the string.
 
-```javascript
-console.log(greeting.length); // Output: 5
-```
+  ```javascript
+  console.log(greeting.length); // Output: 5
+  ```
 
-- `toUpperCase()`, `toLowerCase()`: Converts the string to upper or lower case.
+````
 
-```javascript
-console.log(greeting.toUpperCase()); // Output: HELLO
-console.log(greeting.toLowerCase()); // Output: hello
-```
+  - `toUpperCase()`, `toLowerCase()`: Converts the string to upper or lower case.
 
-- `indexOf()`, `lastIndexOf()`: Finds the index of a substring.
+  ```javascript
+  console.log(greeting.toUpperCase()); // Output: HELLO
+  console.log(greeting.toLowerCase()); // Output: hello
+  ```
 
-```javascript
-console.log(greeting.indexOf("l")); // Output: 2
-console.log(greeting.lastIndexOf("l")); // Output: 3
-```
+  - `indexOf()`, `lastIndexOf()`: Finds the index of a substring.
 
-- `slice()`, `substring()`, `substr()`: Extracts a part of the string.
+  ```javascript
+  console.log(greeting.indexOf("l")); // Output: 2
+  console.log(greeting.lastIndexOf("l")); // Output: 3
+  ```
 
-```javascript
-console.log(greeting.slice(1, 4)); // Output: ell
-console.log(greeting.substring(1, 4)); // Output: ell
-console.log(greeting.substr(1, 3)); // Output: ell
-```
+  - `slice()`, `substring()`, `substr()`: Extracts a part of the string.
 
-- `replace()`: Replaces a substring with another string.
+  ```javascript
+  console.log(greeting.slice(1, 4)); // Output: ell
+  console.log(greeting.substring(1, 4)); // Output: ell
+  console.log(greeting.substr(1, 3)); // Output: ell
+  ```
 
-```javascript
-console.log(greeting.replace("Hello", "Hi")); // Output: Hi
-```
+  - `replace()`: Replaces a substring with another string.
 
-- `split()`: Splits the string into an array of substrings.
+  ```javascript
+  console.log(greeting.replace("Hello", "Hi")); // Output: Hi
+  ```
 
-```javascript
-console.log(greeting.split("")); // Output: ["H", "e", "l", "l", "o"]
-```
+  - `split()`: Splits the string into an array of substrings.
+
+  ```javascript
+  console.log(greeting.split("")); // Output: ["H", "e", "l", "l", "o"]
+  ```
 
 - **Type Conversion**:
 
-- Convert values to strings using `String()`, `toString()`, or template literals.
+  - Convert values to strings using `String()`, `toString()`, or template literals.
 
-```javascript
-var num = 10;
-console.log(String(num)); // Output: "10"
-console.log(num.toString()); // Output: "10"
-console.log(`${num}`); // Output: "10"
-```
+  ```javascript
+  var num = 10;
+  console.log(String(num)); // Output: "10"
+  console.log(num.toString()); // Output: "10"
+  console.log(`${num}`); // Output: "10"
+  ```
+
+````
 
 - **String Concatenation**:
 
-- Combine strings using the `+` operator or `concat()` method.
+  - Combine strings using the `+` operator or `concat()` method.
 
-```javascript
-var firstName = "John";
-var lastName = "Doe";
-var fullName = firstName + " " + lastName; // Output: "John Doe"
-console.log(fullName);
-console.log(firstName.concat(" ", lastName)); // Output: "John Doe"
-```
+  ```javascript
+  var firstName = "John";
+  var lastName = "Doe";
+  var fullName = firstName + " " + lastName; // Output: "John Doe"
+  console.log(fullName);
+  console.log(firstName.concat(" ", lastName)); // Output: "John Doe"
+  ```
+
+````
 
 - **Template Strings**:
 
-- Use backticks (`` ` ``) for template literals, allowing for easier string interpolation.
+  - Use backticks (`` ` ``) for template literals, allowing for easier string interpolation.
 
-```javascript
-var age = 25;
-var message = `Hello, my name is ${name} and I am ${age} years old.`;
-console.log(message); // Output: Hello, my name is John and I am 25 years old.
-```
+  ```javascript
+  var age = 25;
+  var message = `Hello, my name is ${name} and I am ${age} years old.`;
+  console.log(message); // Output: Hello, my name is John and I am 25 years old.
+  ```
 
 - **2. Reference Data Types**:
   - **Object**: Key-value pairs.
@@ -1074,3 +1080,4 @@ Objects store collections of key-value pairs.
 ```
 
 ```
+````

@@ -458,25 +458,23 @@ JavaScript variables hold various data types, categorized as:
 - **Type Conversion**:
 
   - Convert values to strings using `String()`, `toString()`, or template literals.
-
-  ```javascript
-  var num = 10;
-  console.log(String(num)); // Output: "10"
-  console.log(num.toString()); // Output: "10"
-  console.log(`${num}`); // Output: "10"
-  ```
+    ```javascript
+    var num = 10;
+    console.log(String(num)); // Output: "10"
+    console.log(num.toString()); // Output: "10"
+    console.log(`${num}`); // Output: "10"
+    ```
 
 - **String Concatenation**:
 
   - Combine strings using the `+` operator or `concat()` method.
-
-  ```javascript
-  var firstName = "John";
-  var lastName = "Doe";
-  var fullName = firstName + " " + lastName; // Output: "John Doe"
-  console.log(fullName);
-  console.log(firstName.concat(" ", lastName)); // Output: "John Doe"
-  ```
+    ```javascript
+    var firstName = "John";
+    var lastName = "Doe";
+    var fullName = firstName + " " + lastName; // Output: "John Doe"
+    console.log(fullName);
+    console.log(firstName.concat(" ", lastName)); // Output: "John Doe"
+    ```
 
 - **Template Strings**:
 

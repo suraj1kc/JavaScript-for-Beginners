@@ -490,55 +490,6 @@ JavaScript variables hold various data types, categorized as:
 
 ## 8. Operators and Expressions
 
-## Comparison Operators: `==` vs `===` and `!=` vs `!==`
-
-In JavaScript, comparison operators are used to compare values. The key difference between `==` and `===` (and `!=` and `!==`) lies in how they handle **type coercion**.
-
-- 1. `==` (Loose Equality)
-- Compares two values for equality **after converting them to a common type** (type coercion).
-- Does **not** check the data type.
-- Example:
-
-  ```javascript
-  console.log(5 == "5"); // true (number 5 is coerced to string "5")
-  console.log(true == 1); // true (true is coerced to 1)
-  console.log(null == undefined); // true (special case)
-  ```
-
-- 2. `===` (Strict Equality)
-- Compares two values for equality **without type coercion**.
-- Checks both the **value** and the **data type**.
-- Example:
-
-  ```javascript
-  console.log(5 === "5"); // false (number vs string)
-  console.log(true === 1); // false (boolean vs number)
-  console.log(null === undefined); // false (different types)
-  ```
-
-- 3. `!=` (Loose Inequality)
-- Checks if two values are **not equal** after type coercion.
-- Does **not** consider the data type.
-- Example:
-
-  ```javascript
-  console.log(5 != "5"); // false (values are equal after coercion)
-  console.log(true != 1); // false (true is coerced to 1)
-  console.log(null != undefined); // false (special case)
-  ```
-
-- 4. `!==` (Strict Inequality)
-- Checks if two values are **not equal** without type coercion.
-- Considers both the **value** and the **data type**.
-- Example:
-  ```javascript
-  console.log(5 !== "5"); // true (number vs string)
-  console.log(true !== 1); // true (boolean vs number)
-  console.log(null !== undefined); // true (different types)
-  ```
-
----
-
 Operators perform operations on values, while expressions evaluate to a single value.
 
 - Types of Operators:

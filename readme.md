@@ -359,9 +359,6 @@ JavaScript variables hold various data types, categorized as:
   console.log(typeof id); // Output: symbol
   ```
 
-Here is the markdown content for the section from String Indexing to Template Strings:
-
-````markdown
 ### String Indexing
 
 - Access characters in a string using their index (0-based).
@@ -371,6 +368,7 @@ var greeting = "Hello";
 console.log(greeting[0]); // Output: H
 console.log(greeting.charAt(1)); // Output: e
 ```
+
 ````
 
 ### String Methods
@@ -1060,3 +1058,4 @@ Objects store collections of key-value pairs.
     let person5 = new Person("Sarah", 29);
     console.log(person5.greet());
     ```
+````

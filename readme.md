@@ -315,51 +315,65 @@ JavaScript variables hold various data types, categorized as:
 1.  **Primitive Data Types**: `String`, `Number`, `Boolean`, `Undefined`, `Null`, `BigInt`, `Symbol`.
 2.  **Reference Data Types**: `Object`, `Array`, `Function`.
 
-- **Primitive Data Types**:
+- **1. Primitive Data Types**:
+
   - **String**: Textual data.
+
   ```javascript
   var name = "John";
   console.log(name); // Output: John
   console.log(typeof name); // Output: string
   ```
+
   - **Number**: Numeric data (integers, floats).
+
   ```javascript
   var age = 25;
   console.log(age); // Output: 25
   console.log(typeof age); // Output: number
   ```
+
   - **Boolean**: Logical values (`true` or `false`).
+
   ```javascript
   var isStudent = true;
   console.log(isStudent); // Output: true
   console.log(typeof isStudent); // Output: boolean
   ```
+
   - **Undefined**: Variable declared but not assigned a value.
+
   ```javascript
   var address;
   console.log(address); // Output: undefined
   console.log(typeof address); // Output: undefined
   ```
+
   - **Null**: Intentional absence of any object value.
+
   ```javascript
   var car = null;
   console.log(car); // Output: null
   console.log(typeof car); // Output: object (quirk of JS)
   ```
+
   - **BigInt**: Integers larger than `2^53 - 1`.
+
   ```javascript
   var bigNumber = 9007199254740991n;
   console.log(bigNumber); // Output: 9007199254740991n
   console.log(typeof bigNumber); // Output: bigint
   ```
+
   - **Symbol**: Unique and immutable value.
+
   ```javascript
   var id = Symbol("id");
   console.log(id); // Output: Symbol(id)
   console.log(typeof id); // Output: symbol
   ```
 
-### String Indexing
+- ** String Indexing **:
 
 - Access characters in a string using their index (0-based).
 
@@ -369,7 +383,7 @@ console.log(greeting[0]); // Output: H
 console.log(greeting.charAt(1)); // Output: e
 ```
 
-### String Methods
+- ** String Methods **:
 
 - `length`: Returns the length of the string.
 
@@ -411,7 +425,7 @@ console.log(greeting.replace("Hello", "Hi")); // Output: Hi
 console.log(greeting.split("")); // Output: ["H", "e", "l", "l", "o"]
 ```
 
-### Type Conversion
+-** Type Conversion **:
 
 - Convert values to strings using `String()`, `toString()`, or template literals.
 
@@ -422,7 +436,7 @@ console.log(num.toString()); // Output: "10"
 console.log(`${num}`); // Output: "10"
 ```
 
-### String Concatenation
+- ** String Concatenation **:
 
 - Combine strings using the `+` operator or `concat()` method.
 
@@ -434,7 +448,7 @@ console.log(fullName);
 console.log(firstName.concat(" ", lastName)); // Output: "John Doe"
 ```
 
-### Template Strings
+- ** Template Strings **:
 
 - Use backticks (`` ` ``) for template literals, allowing for easier string interpolation.
 
@@ -444,7 +458,7 @@ var message = `Hello, my name is ${name} and I am ${age} years old.`;
 console.log(message); // Output: Hello, my name is John and I am 25 years old.
 ```
 
-- **Reference Data Types**:
+- **2. Reference Data Types**:
   - **Object**: Key-value pairs.
   ```javascript
   var person = {

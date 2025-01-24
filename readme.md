@@ -1073,3 +1073,145 @@ Objects store collections of key-value pairs.
     let person5 = new Person("Sarah", 29);
     console.log(person5.greet());
     ```
+
+---
+
+# Unit 6 Questions for Exam Preparation
+
+---
+
+## **Introduction to JavaScript**
+
+1. How does JavaScript add interactivity to web pages?
+2. Explain why learning JavaScript is beneficial for front-end development.
+3. Provide an example of a simple JavaScript code that outputs "Hello World!" to the console.
+4. What makes JavaScript a high-level language?
+5. List three main use cases of JavaScript.
+6. Why is JavaScript considered "lightweight"?
+7. What does it mean that JavaScript is "case-sensitive"?
+8. How does `console.log()` help in development?
+
+---
+
+## **Using JavaScript in HTML**
+
+1. Describe three ways to add JavaScript to an HTML document.
+2. Why is it recommended to place `<script>` tags at the end of the `<body>` section?
+3. Why is external JavaScript preferred for larger projects?
+4. What is the difference between inline and internal JavaScript?
+5. How do you link an external JavaScript file in HTML?
+6. What happens if you place `<script>` tags in the `<head>` section of an HTML document?
+
+---
+
+## **JavaScript Output**
+
+1. List and describe four ways to output data in JavaScript.
+2. Why should `document.write()` be used sparingly in production code?
+3. When should you use `innerHTML` versus `document.write()`?
+4. What is the main purpose of `console.log()`?
+5. How do you display a pop-up message using JavaScript?
+6. What is the difference between `alert()` and `console.log()`?
+
+---
+
+## **JavaScript Comments**
+
+1. What is the difference between single-line and multi-line comments in JavaScript?
+2. Provide an example of how comments can be used to temporarily disable code during debugging.
+3. What is the best practice for using comments in JavaScript?
+4. How do you write a comment in a template literal?
+
+---
+
+## **Variables in JavaScript**
+
+1. Compare and contrast `var`, `let`, and `const` in JavaScript.
+2. Provide an example of a variable declared using `const` and explain what happens if you try to reassign it.
+3. Why is `const` preferred for values that won't change?
+4. Explain block scope versus function scope.
+5. What are the rules for naming variables in JavaScript?
+6. What is variable hoisting, and how does it affect `var` declarations?
+
+---
+
+## **Data Types in JavaScript**
+
+1. List and describe the seven primitive data types in JavaScript.
+2. How do you check the type of a variable in JavaScript?
+3. Provide an example of an object and an array in JavaScript.
+4. What is the difference between `null` and `undefined`?
+5. What is type coercion in JavaScript?
+6. Explain the difference between reference and primitive data types.
+
+---
+
+## **Operators and Expressions**
+
+1. What are arithmetic operators? Provide examples.
+2. Explain the difference between `==` and `===` operators.
+3. What is the purpose of the ternary operator? Provide an example.
+4. List three types of logical operators.
+5. What is operator precedence?
+6. How do you use the spread operator?
+
+---
+
+## **Control Flow and Conditionals**
+
+1. Describe how an `if` statement works in JavaScript.
+2. Provide an example of a `switch` statement that handles different days of the week.
+3. When would you use a `switch` statement instead of `if-else`?
+4. What is the difference between `break` and `continue`?
+5. How can you chain multiple conditions using `else if`?
+6. What is the advantage of using a ternary operator?
+7. How do you handle multiple conditions with logical operators?
+
+---
+
+## **Loops**
+
+1. Compare and contrast `for`, `while`, and `do...while` loops.
+2. What is the purpose of the `break` and `continue` statements in loops?
+3. What is the difference between `while` and `do...while` loops?
+4. When would you use `for...in` versus `for...of`?
+5. How do you break out of a nested loop?
+6. What is an infinite loop, and how do you avoid it?
+7. How do you iterate over an array using different types of loops?
+8. Write an example of a `for...in` loop to iterate over object properties.
+
+---
+
+## **Functions**
+
+1. What is the difference between a function declaration and a function expression?
+2. Provide an example of an arrow function and explain its syntax.
+3. How do higher-order functions work? Provide an example.
+4. What is the difference between function declarations and expressions?
+5. How do arrow functions differ from regular functions?
+6. Explain function hoisting.
+7. What are higher-order functions?
+8. How do callback functions work?
+
+---
+
+## **Arrays**
+
+1. How do you create an array in JavaScript? Provide two methods.
+2. List three methods to add or remove elements from an array and provide examples.
+3. What is array destructuring? Provide an example.
+4. How do you sort an array of numbers?
+5. What is the difference between `slice()` and `splice()`?
+
+---
+
+## **Objects**
+
+1. How do you create an object in JavaScript? Provide two methods.
+2. Explain how to access and modify object properties.
+3. What is the `this` keyword, and how is it used in object methods? Provide an example.
+4. How do you loop through object properties?
+5. What is object destructuring?
+6. How do prototypes work in JavaScript?
+
+---

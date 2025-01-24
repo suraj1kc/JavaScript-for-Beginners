@@ -1081,6 +1081,10 @@ Objects store collections of key-value pairs.
 
 ---
 
+<!-- add see all old questions -->
+
+## Refer to all old and model questions and solve them
+
 ## **Introduction to JavaScript**
 
 1. How does JavaScript add interactivity to web pages?

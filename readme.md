@@ -373,6 +373,38 @@ JavaScript variables hold various data types, categorized as:
   console.log(typeof id); // Output: symbol
   ```
 
+- **2. Reference Data Types**:
+
+  - **Object**: Key-value pairs.
+
+  ```javascript
+  var person = {
+    firstName: "Jane",
+    lastName: "Doe",
+    age: 30,
+  };
+  console.log(person);
+  console.log(typeof person); // Output: object
+  ```
+
+  - **Array**: Ordered list of values.
+
+  ```javascript
+  var colors = ["Red", "Green", "Blue"];
+  console.log(colors);
+  console.log(typeof colors); // Output: object (Arrays are a type of object)
+  ```
+
+  - **Function**: Block of code for a specific task.
+
+  ```javascript
+  function greet() {
+    console.log("Hello, World!");
+  }
+  console.log(greet); // Output: [Function: greet]
+  console.log(typeof greet); // Output: function
+  ```
+
 - **String Indexing**:
 
   - Access characters in a string using their index (0-based).
@@ -454,32 +486,6 @@ JavaScript variables hold various data types, categorized as:
     var message = `Hello, my name is ${name} and I am ${age} years old.`;
     console.log(message); // Output: Hello, my name is John and I am 25 years old.
     ```
-
-- **2. Reference Data Types**:
-  - **Object**: Key-value pairs.
-  ```javascript
-  var person = {
-    firstName: "Jane",
-    lastName: "Doe",
-    age: 30,
-  };
-  console.log(person);
-  console.log(typeof person); // Output: object
-  ```
-  - **Array**: Ordered list of values.
-  ```javascript
-  var colors = ["Red", "Green", "Blue"];
-  console.log(colors);
-  console.log(typeof colors); // Output: object (Arrays are a type of object)
-  ```
-  - **Function**: Block of code for a specific task.
-  ```javascript
-  function greet() {
-    console.log("Hello, World!");
-  }
-  console.log(greet); // Output: [Function: greet]
-  console.log(typeof greet); // Output: function
-  ```
 
 ## 8. Operators and Expressions
 

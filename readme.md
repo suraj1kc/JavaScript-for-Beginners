@@ -1114,11 +1114,12 @@ Objects store collections of key-value pairs.
 ## **JavaScript Output**
 
 1. List and describe four ways to output data in JavaScript.
-2. Why should `document.write()` be used sparingly in production code?
+2. Why should `document.write()` avoid while writing JavaScript code?
 3. When should you use `innerHTML` versus `document.write()`?
 4. What is the main purpose of `console.log()`?
 5. How do you display a pop-up message using JavaScript?
 6. What is the difference between `alert()` and `console.log()`?
+7. What is a prompt box? - (Fall 2023, Q6)
 
 ---
 
@@ -1150,10 +1151,11 @@ Objects store collections of key-value pairs.
 4. What is the difference between `null` and `undefined`?
 5. What is type coercion in JavaScript?
 6. Explain the difference between reference and primitive data types.
+7. What is the difference between undefined value and null value? (Model Question, Q7)
 
 ---
 
-## **Operators and Expressions**
+<!-- ## **Operators and Expressions**
 
 1. What are arithmetic operators? Provide examples.
 2. Explain the difference between `==` and `===` operators.
@@ -1161,6 +1163,8 @@ Objects store collections of key-value pairs.
 4. List three types of logical operators.
 5. What is operator precedence?
 6. How do you use the spread operator?
+7. Explain types of operator in JS? Explain in detail. (Spring 2024, Q12)
+8. Explain types of JavaScript operators in detail. Use examples to demonstrate. (Model Question, Q15)
 
 ---
 
@@ -1173,6 +1177,8 @@ Objects store collections of key-value pairs.
 5. How can you chain multiple conditions using `else if`?
 6. What is the advantage of using a ternary operator?
 7. How do you handle multiple conditions with logical operators?
+8. Write a JavaScript function to calculate the grade of a student based on the mark. (Fall 2023, Q14; Model Question, Q17)
+9. Explain how error handling is done using try-catch blocks in JavaScript. (Spring 2024, Q14b)
 
 ---
 
@@ -1186,6 +1192,7 @@ Objects store collections of key-value pairs.
 6. What is an infinite loop, and how do you avoid it?
 7. How do you iterate over an array using different types of loops?
 8. Write an example of a `for...in` loop to iterate over object properties.
+9. Develop a JavaScript function that iterates through an array of numbers, separates prime numbers and composite numbers into different arrays and returns them as an object. (Fall 2023, Q17b)
 
 ---
 
@@ -1199,6 +1206,8 @@ Objects store collections of key-value pairs.
 6. Explain function hoisting.
 7. What are higher-order functions?
 8. How do callback functions work?
+9. Define callback function. (Fall 2023, Q7; Spring 2024, Q8)
+10. What are arrow functions? (Fall 2023, Q17a)
 
 ---
 
@@ -1209,6 +1218,8 @@ Objects store collections of key-value pairs.
 3. What is array destructuring? Provide an example.
 4. How do you sort an array of numbers?
 5. What is the difference between `slice()` and `splice()`?
+6. Explain any two uses of arrays in JavaScript. (Model Question, Q8)
+7. Develop a JavaScript function that iterates through an array of numbers... (Fall 2023, Q17b)
 
 ---
 
@@ -1220,5 +1231,7 @@ Objects store collections of key-value pairs.
 4. How do you loop through object properties?
 5. What is object destructuring?
 6. How do prototypes work in JavaScript?
+7. What is JSON? When is it used? (Spring 2024, Q10)
+8. Develop a JavaScript function that returns an object with prime and composite numbers. (Fall 2023, Q17b)
 
----
+--- -->

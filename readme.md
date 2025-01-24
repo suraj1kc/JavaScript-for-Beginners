@@ -21,6 +21,7 @@ This document provides a comprehensive overview of JavaScript fundamentals, cove
 11. [Functions](#11-functions)
 12. [Arrays](#12-arrays)
 13. [Objects](#13-objects)
+14. [Unit 6 Questions for Exam Preparation](#unit-6-questions-for-exam-preparation)
 
 ## 1. History of JavaScript
 

@@ -369,8 +369,6 @@ console.log(greeting[0]); // Output: H
 console.log(greeting.charAt(1)); // Output: e
 ```
 
-````
-
 ### String Methods
 
 - `length`: Returns the length of the string.
@@ -1058,4 +1056,7 @@ Objects store collections of key-value pairs.
     let person5 = new Person("Sarah", 29);
     console.log(person5.greet());
     ```
-````
+
+```
+
+```

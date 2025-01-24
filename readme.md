@@ -1081,9 +1081,11 @@ Objects store collections of key-value pairs.
 
 ---
 
-<!-- add see all old questions -->
+> **Note**  
+> **Refer to all old and model questions and solve them.**  
+> This is crucial for exam preparation as these questions are directly aligned with the syllabus and have been tested in previous exams. Make sure to practice them thoroughly!
 
-## Refer to all old and model questions and solve them
+---
 
 ## **Introduction to JavaScript**
 

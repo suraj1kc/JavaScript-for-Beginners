@@ -22,6 +22,14 @@ This document provides a comprehensive overview of JavaScript fundamentals, cove
 12. [Arrays](#12-arrays)
 13. [Objects](#13-objects)
 14. [Unit 6 Questions for Exam Preparation](#unit-6-questions-for-exam-preparation)
+15. [Scope and Closures](#1-scope-and-closures)
+16. [Error Handling and Debugging](#2-error-handling-and-debugging)
+17. [DOM Manipulation](#3-dom-manipulation)
+18. [Asynchronous JavaScript](#4-asynchronous-javascript)
+19. [JSON and AJAX](#5-json-and-ajax)
+20. [ES6 and Modern JavaScript](#6-es6-and-modern-javascript)
+21. [JavaScript Libraries](#7-javascript-libraries)
+22. [Unit 7 Questions for Exam Preparation](#unit-7-questions-for-exam-preparation)
 
 ## 1. History of JavaScript
 
@@ -1145,7 +1153,7 @@ Objects store collections of key-value pairs.
 
 ## **Data Types in JavaScript**
 
-1. List and describe the seven primitive data types in JavaScript.
+1. List and describe the all primitive and reference data types in JavaScript.
 2. How do you check the type of a variable in JavaScript?
 3. Provide an example of an object and an array in JavaScript.
 4. What is the difference between `null` and `undefined`?
@@ -1155,7 +1163,7 @@ Objects store collections of key-value pairs.
 
 ---
 
-<!-- ## **Operators and Expressions**
+## **Operators and Expressions**
 
 1. What are arithmetic operators? Provide examples.
 2. Explain the difference between `==` and `===` operators.
@@ -1234,4 +1242,879 @@ Objects store collections of key-value pairs.
 7. What is JSON? When is it used? (Spring 2024, Q10)
 8. Develop a JavaScript function that returns an object with prime and composite numbers. (Fall 2023, Q17b)
 
---- -->
+---
+
+It looks like you're asking for the complete content of Unit 7, which includes advanced JavaScript concepts such as scope and closures, error handling and debugging, DOM manipulation, asynchronous JavaScript, JSON and AJAX, ES6 and modern JavaScript, and JavaScript libraries. Below is the comprehensive content for Unit 7:
+
+# Unit 7: Advanced JavaScript Concepts
+
+## 1. Scope and Closures
+
+### Scope
+
+Scope determines the accessibility of variables, functions, and objects in different parts of your code. It controls where a variable can be accessed or modified.
+
+#### Global Scope
+
+Variables declared outside any function have a global scope. They can be accessed and modified from anywhere in your code.
+
+```javascript
+let globalVariable = "I am global!"; // Declared in the global scope
+function checkGlobal() {
+  console.log(globalVariable); // Accessing a global variable inside a function
+}
+checkGlobal(); // Output: I am global!
+console.log(globalVariable); // Accessing a global variable outside a function
+```
+
+#### Local (Function) Scope
+
+Variables declared inside a function have a local scope. They can only be accessed and modified within that function.
+
+```javascript
+function myFunction() {
+  let localVariable = "I am local!"; // Declared in the function scope
+  console.log(localVariable); // Accessing a local variable
+}
+myFunction(); // Output: I am local!
+// console.log(localVariable); // Error: localVariable is not defined (outside of myFunction)
+```
+
+#### Block Scope
+
+Variables declared with `let` and `const` have block scope, meaning they are only accessible within the block (e.g., inside `if` statements, `for` loops, or `{}`).
+
+```javascript
+if (true) {
+  let blockScoped = "I am block-scoped!";
+  console.log(blockScoped); // Output: I am block-scoped!
+}
+// console.log(blockScoped); // Error: blockScoped is not defined
+```
+
+### Closures
+
+A closure is created when an inner function attempts to access the scope of its outer function even after the outer function has completed its execution. The inner function "remembers" the environment in which it was created.
+
+```javascript
+function outerFunction(outerVariable) {
+  return function innerFunction(innerVariable) {
+    console.log(outerVariable); // Accessing outer variable
+    console.log(innerVariable); // Accessing inner variable
+  };
+}
+let myClosure = outerFunction("Hello from outer");
+myClosure("Hello from inner"); // Output: Hello from outer
+// Hello from inner
+```
+
+### Uses of Closures
+
+Closures are commonly used in:
+
+- **Data Encapsulation**: To hide data and provide a controlled interface.
+- **Creating Private Variables**.
+- **Implementing Callbacks and Event Handlers**.
+- **Creating Function Factories**: Functions that return other functions.
+
+```javascript
+function createCounter() {
+  let count = 0; // Private variable
+  return {
+    increment: function () {
+      count++;
+    },
+    getCount: function () {
+      return count;
+    },
+  };
+}
+let counter = createCounter();
+counter.increment();
+console.log(counter.getCount()); // Output: 1
+counter.increment();
+console.log(counter.getCount()); // Output: 2
+// console.log(count); // Error: count is not defined because it's inside createCounter.
+```
+
+### Key Takeaways for Students
+
+- Scope determines where variables can be accessed.
+- Global scope variables are accessible everywhere.
+- Local (function) scope variables are only accessible within the function.
+- Block scope variables (with `let` and `const`) are only accessible within their block.
+- Closures allow inner functions to remember and access their outer function's scope, even after the outer function has completed.
+- Closures are crucial for data encapsulation, private variables, and many other advanced JavaScript patterns.
+
+## 2. Error Handling and Debugging
+
+Error handling is essential for building robust applications that handle unexpected situations gracefully. Debugging is the process of identifying and fixing errors in your code.
+
+### Types of Errors
+
+JavaScript has several types of errors:
+
+- **Syntax Errors**: Occur when JavaScript syntax rules are violated.
+- **Runtime Errors**: Occur during execution of code, such as trying to access an undefined variable or dividing by zero.
+- **Logical Errors**: Occur when the code runs without crashing but doesn't produce the expected outcome due to logic errors.
+
+```javascript
+// Syntax Error
+// let myVar // SyntaxError: Missing semicolon
+
+// Runtime Error
+let num = undefined;
+console.log(num.toLowerCase()); // TypeError: Cannot read property 'toLowerCase' of undefined
+
+// Logical Error
+function add(a, b) {
+  return a - b; // Logical error: should be a + b
+}
+let result = add(5, 3); // Result: 2 (should be 8)
+```
+
+### `try...catch` Statement
+
+The `try...catch` statement allows you to handle errors by trying a block of code and catching any errors that occur.
+
+```javascript
+try {
+  // Code that might throw an error
+  let num = undefined;
+  console.log(num.toLowerCase());
+} catch (error) {
+  // Code to handle the error
+  console.error("An error occurred:", error.message); // Output: An error occurred: Cannot read properties of undefined (reading 'toLowerCase')
+} finally {
+  // Code that will execute regardless of success or failure
+  console.log("Finally block executed");
+}
+```
+
+### Throwing Errors
+
+You can also throw custom errors using the `throw` statement, which is useful for handling invalid data or unexpected conditions.
+
+```javascript
+function checkAge(age) {
+  if (age < 0) {
+    throw new Error("Age cannot be negative!");
+  }
+  return "Age is valid";
+}
+
+try {
+  let result = checkAge(-5);
+  console.log(result);
+} catch (error) {
+  console.error("Error:", error.message); // Output: Error: Age cannot be negative!
+}
+```
+
+### Debugging Techniques
+
+Debugging is the process of finding and fixing errors in your code. Here are some techniques:
+
+- **Using `console.log()`**: Logging variables and messages to the console for debugging.
+- **Using Browser Debugger**: Step through code, set breakpoints, inspect variables, and monitor the program's state.
+- **Using `debugger` Statement**: Insert `debugger;` in your code to pause execution at that point.
+
+```javascript
+function calculateSum(a, b) {
+  let sum = a + b;
+  debugger; // Pauses code execution to inspect variables
+  return sum;
+}
+```
+
+### Error Object
+
+The Error object provides information about an error that occurred. Key properties include:
+
+- `message`: Error message text.
+- `name`: Error type (e.g., "TypeError", "ReferenceError").
+- `stack`: Stack trace of where the error occurred.
+
+### Key Takeaways for Students
+
+- Error handling is vital for creating stable and user-friendly applications.
+- Use `try...catch` blocks to catch and handle errors that might occur during code execution.
+- Use the `throw` statement to raise custom errors based on specific conditions.
+- Debugging is a key skill in software development; use debugging tools effectively.
+- The `Error` object provides properties such as `message`, `name`, and `stack`.
+
+## 3. DOM Manipulation
+
+The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the document as a tree-like structure of objects. JavaScript can use the DOM to interact with HTML elements, modify their content, style, and behavior.
+
+### Understanding the DOM
+
+The DOM is an object-based representation of the HTML structure. Each HTML tag, attribute, and text node is represented as a node in the DOM tree. The `document` object serves as the entry point to access the DOM.
+
+```html
+<html>
+  <head>
+    <title>My Page</title>
+  </head>
+  <body>
+    <h1 id="title">Welcome</h1>
+    <p class="content">This is some content.</p>
+    <button onclick="handleClick()">Click me</button>
+  </body>
+</html>
+```
+
+### Selecting Elements
+
+JavaScript provides methods to select HTML elements:
+
+- `getElementById()`: Selects elements by ID.
+- `getElementsByClassName()`: Selects elements by class name (returns an HTML collection).
+- `getElementsByTagName()`: Selects elements by tag name (returns an HTML collection).
+- `querySelector()`: Selects the first element that matches the CSS selector.
+- `querySelectorAll()`: Selects all elements that match the CSS selector (returns a NodeList).
+
+```javascript
+// Selecting by ID
+let titleElement = document.getElementById("title");
+console.log(titleElement); // Output: <h1 id="title">Welcome</h1>
+
+// Selecting by class name
+let contentElements = document.getElementsByClassName("content");
+console.log(contentElements); // Output: HTMLCollection(1) [p.content]
+
+// Selecting by tag name
+let pElements = document.getElementsByTagName("p");
+console.log(pElements); // Output: HTMLCollection(1) [p.content]
+
+// Selecting by CSS selector (single)
+let element1 = document.querySelector(".content");
+console.log(element1); // Output: <p class="content">This is some content.</p>
+
+// Selecting by CSS selector (multiple)
+let element2 = document.querySelectorAll("p");
+console.log(element2); // Output: NodeList(1) [p.content]
+```
+
+### Modifying Elements
+
+Once selected, you can modify element properties:
+
+- `innerHTML`: Sets the inner HTML content of an element.
+- `textContent`: Sets the text content of an element.
+- `setAttribute()`: Sets the value of an attribute.
+- `style`: Sets the inline style of an element.
+- `classList`: Adds, removes, or toggles CSS classes.
+
+```javascript
+// Modifying innerHTML
+titleElement.innerHTML = "New title";
+
+// Modifying textContent
+element1.textContent = "New content";
+
+// Modifying attributes
+titleElement.setAttribute("data-info", "my-title");
+
+// Modifying style
+element1.style.color = "blue";
+
+// Modifying CSS classes
+element1.classList.add("highlight"); // Add class
+element1.classList.remove("content"); // Remove class
+element1.classList.toggle("active"); // Toggle class
+```
+
+### Creating and Inserting Elements
+
+JavaScript provides methods to create new elements:
+
+- `document.createElement()`: Creates a new HTML element.
+- `document.createTextNode()`: Creates a new text node.
+- `appendChild()`: Adds a node as a child to another node.
+- `insertBefore()`: Inserts a node before a specific child node.
+- `removeChild()`: Removes a child node from another node.
+
+```javascript
+// Creating element
+let newParagraph = document.createElement("p");
+
+// Creating text node
+let textNode = document.createTextNode("This is a new paragraph.");
+
+// Appending the text node to paragraph element
+newParagraph.appendChild(textNode);
+
+// Appending the element to the body
+document.body.appendChild(newParagraph);
+
+// Inserting before another element
+document.body.insertBefore(newParagraph, element1);
+
+// Removing an element from document
+document.body.removeChild(element1);
+```
+
+### Handling Events
+
+JavaScript can respond to events triggered by user interactions (e.g., mouse clicks, keyboard input, page loading):
+
+- `addEventListener()`: Attach an event listener to an element.
+- Event handlers (e.g., `onclick`, `onload`, `onmouseover`, `onkeyup`).
+
+```javascript
+// Using addEventListener
+let button = document.querySelector("button");
+
+function handleClick() {
+  alert("Button clicked");
+}
+button.addEventListener("click", handleClick);
+
+// Using event handlers
+// <button onclick="handleClick()">Click me</button> // Handle in HTML
+```
+
+### Key Takeaways for Students
+
+- The DOM is a tree-like structure of objects that represents an HTML document.
+- Use methods like `getElementById()`, `querySelector()`, etc., to select elements.
+- Modify element properties using `innerHTML`, `textContent`, `setAttribute()`, `style`, and `classList`.
+- Create new elements using `document.createElement()` and insert them into the DOM using `appendChild()`.
+- Use `addEventListener()` to handle events and make web pages interactive.
+
+## 4. Asynchronous JavaScript
+
+Asynchronous JavaScript allows you to perform operations without blocking the main thread, ensuring smooth and responsive user interfaces. This is especially important for tasks that take time, such as fetching data from servers or handling timers.
+
+### Synchronous vs Asynchronous Code
+
+- **Synchronous code** executes line by line, one after the other. Each line waits for the previous one to complete.
+- **Asynchronous code** allows operations to run in the background without blocking other operations. When an asynchronous operation is completed, a callback, a promise, or async function is used to handle the result.
+
+```javascript
+// Synchronous code
+console.log("First");
+console.log("Second");
+console.log("Third"); // Output: First, Second, Third
+
+// Asynchronous code (using setTimeout)
+console.log("First");
+setTimeout(function () {
+  console.log("Second");
+}, 1000); // Waits 1 second
+console.log("Third"); // Output: First, Third, Second (out of order)
+```
+
+### Callbacks
+
+A callback is a function passed as an argument to another function and executed when the operation is complete. Callbacks can lead to "callback hell," which is complex to maintain when nested.
+
+```javascript
+function fetchData(callback) {
+  setTimeout(function () {
+    const data = { message: "Data fetched" };
+    callback(data);
+  }, 1000);
+}
+
+function processData(data) {
+  console.log("Processing data:", data.message);
+}
+fetchData(processData); // Output: Processing data: Data fetched (after 1 second)
+```
+
+### Promises
+
+Promises are objects representing the eventual completion (or failure) of an asynchronous operation and help to make asynchronous code more readable and maintainable. A promise has three states: pending, fulfilled (resolved), or rejected.
+
+```javascript
+function fetchDataPromise() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(function () {
+      const data = { message: "Data fetched with promise" };
+      resolve(data);
+    }, 1000);
+  });
+}
+
+fetchDataPromise()
+  .then(function (data) {
+    console.log("Promise resolved:", data.message); // Output: Promise resolved: Data fetched with promise (after 1 second)
+  })
+  .catch(function (error) {
+    console.error("Promise rejected:", error);
+  });
+```
+
+### `async/await`
+
+The `async/await` syntax simplifies working with promises, making asynchronous code look more synchronous. An `async` function always returns a promise, and `await` pauses the execution until the promise resolves.
+
+```javascript
+async function fetchDataAsync() {
+  try {
+    const data = await fetchDataPromise();
+    console.log("Async data:", data.message);
+  } catch (error) {
+    console.error("Async error:", error);
+  }
+}
+fetchDataAsync(); // Output: Async data: Data fetched with promise (after 1 second)
+```
+
+### Event Loop
+
+JavaScript runs on a single thread, and it uses an event loop to handle asynchronous operations. The event loop constantly checks the call stack and the callback queue and moves tasks to the call stack when the stack is available.
+
+### Key Takeaways for Students
+
+- Asynchronous code executes non-blocking, ensuring smooth UI responsiveness.
+- Use callbacks to handle the result of asynchronous operations.
+- Promises help in managing async operations, and avoid "callback hell".
+- `async/await` makes asynchronous code more readable and manageable.
+- The event loop handles asynchronous operations and call stack.
+
+## 5. JSON and AJAX
+
+JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write, and easy for machines to parse and generate. AJAX (Asynchronous JavaScript and XML) is a technique for making HTTP requests to a server from a web page without reloading the entire page. AJAX is used for transferring data like JSON.
+
+### JSON
+
+JSON is a format for structured data. It consists of key-value pairs similar to JavaScript objects but uses a specific string format. JSON data types include: strings, numbers, boolean values, null, objects, and arrays.
+
+```json
+{
+  "name": "John Doe",
+  "age": 30,
+  "isStudent": false,
+  "address": {
+    "city": "New York",
+    "country": "USA"
+  },
+  "courses": ["math", "science"]
+}
+```
+
+### `JSON.stringify()` and `JSON.parse()`
+
+JSON provides methods to:
+
+- `JSON.stringify()`: Convert a JavaScript object to a JSON string.
+- `JSON.parse()`: Convert a JSON string to a JavaScript object.
+
+```javascript
+let person = {
+  name: "John Doe",
+  age: 30,
+  occupation: "Developer",
+};
+let jsonString = JSON.stringify(person);
+console.log(jsonString); // Output: {"name":"John Doe","age":30,"occupation":"Developer"} (as a string)
+let parsedPerson = JSON.parse(jsonString);
+console.log(parsedPerson); // Output: {name: 'John Doe', age: 30, occupation: 'Developer'} (as a Javascript Object)
+```
+
+### AJAX
+
+AJAX uses XMLHttpRequest or fetch to make asynchronous HTTP requests to a server and then updates the UI based on the server response.
+
+```javascript
+// Using XMLHttpRequest (older)
+function fetchData(url) {
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", url);
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      const data = JSON.parse(xhr.responseText);
+      console.log(data);
+    } else {
+      console.error("Request failed with status:", xhr.status);
+    }
+  };
+  xhr.onerror = function () {
+    console.log("Error in request");
+  };
+  xhr.send();
+}
+fetchData("https://jsonplaceholder.typicode.com/todos/1");
+```
+
+### Using Fetch API (Modern)
+
+The fetch API is a modern way to make HTTP requests. It is a promise-based API, making it easier to work with asynchronous operations.
+
+```javascript
+function fetchData(url) {
+  fetch(url)
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json(); // Parse response to json
+    })
+    .then(function (data) {
+      console.log(data);
+    })
+    .catch(function (error) {
+      console.error("Error:", error);
+    });
+}
+fetchData("https://jsonplaceholder.typicode.com/todos/1");
+```
+
+### Using Fetch API with async/await
+
+```javascript
+async function fetchDataAsync(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Error", error);
+  }
+}
+fetchDataAsync("https://jsonplaceholder.typicode.com/todos/1");
+```
+
+### Key Takeaways for Students
+
+- JSON is a standard format for structured data exchange.
+- `JSON.stringify()` converts a JavaScript object to a JSON string.
+- `JSON.parse()` converts a JSON string to a JavaScript object.
+- AJAX enables asynchronous communication between web pages and servers.
+- Use `fetch` or `XMLHttpRequest` to make HTTP requests.
+- Handle asynchronous HTTP requests using promises and `async/await`.
+
+## 6. ES6 and Modern JavaScript
+
+ES6 (ECMAScript 2015) and beyond introduce many new features and improvements to JavaScript. They enhance code readability, make it easier to write complex applications, and help to stay up-to-date with modern web development practices.
+
+### `let` and `const`
+
+`let` and `const` are block-scoped variable declarations, offering improvements over `var`. `let` allows reassignment; `const` doesn't.
+
+```javascript
+let count = 10;
+count = 20; // Allowed
+const PI = 3.14;
+// PI = 3.1415; // Error: Assignment to constant variable
+```
+
+### Arrow Functions
+
+Arrow functions provide a shorter syntax for writing function expressions. They also have a different way of handling the `this` keyword.
+
+```javascript
+// Regular function
+// function add(a, b) {
+// return a + b;
+// }
+
+// Arrow function
+const add = (a, b) => a + b;
+const multiply = (a, b) => {
+  return a * b;
+};
+// Arrow function with no arguments
+const logMessage = () => console.log("Hello");
+console.log(add(5, 3));
+logMessage();
+```
+
+### Template Literals
+
+Template literals use backticks (`` ` ``) and allow string interpolation using `${expression}`.
+
+```javascript
+let name = "John";
+let age = 30;
+let message = `Hello, my name is ${name} and I am ${age} years old.`;
+console.log(message);
+```
+
+### Destructuring
+
+Destructuring allows you to unpack values from arrays and objects into distinct variables.
+
+```javascript
+// Array destructuring
+let colors = ["red", "green", "blue"];
+let [first, second] = colors;
+console.log(first); // Output: red
+
+// Object destructuring
+let person = {
+  name: "Alice",
+  age: 25,
+};
+let { name: fullName, age: years } = person;
+console.log(fullName); // Output: Alice
+```
+
+### Spread and Rest Operators
+
+- **Spread operator (`...`)** allows arrays and objects to be expanded.
+- **Rest operator (`...`)** collects parameters into an array.
+
+```javascript
+// Spread operator
+let arr1 = [1, 2, 3];
+let arr2 = [...arr1, 4, 5]; // Expands arr1, and adds more values
+console.log(arr2); // Output: [1, 2, 3, 4, 5]
+
+// Rest operator
+function sum(...numbers) {
+  return numbers.reduce((total, num) => total + num, 0);
+}
+console.log(sum(1, 2, 3, 4)); // Output: 10
+```
+
+### Classes
+
+ES6 introduces class syntax for creating objects and managing inheritance.
+
+```javascript
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  greet() {
+    return `Hello, I am ${this.name}.`;
+  }
+}
+let person1 = new Person("Bob", 28);
+console.log(person1.greet()); // Output: Hello, I am Bob.
+```
+
+### Modules
+
+Modules allow you to organize code into separate files and share variables, functions, and classes between files.
+
+```javascript
+// Named exports
+// export const PI = 3.14159;
+// export function add(a, b) {return a + b};
+
+// Named imports
+// import { PI, add } from "./myModule.js";
+
+// Default exports
+// export default function sayHello(name) {console.log(`Hello ${name}`)}
+// Default imports
+// import sayHello from "./myModule.js";
+```
+
+### Key Takeaways for Students
+
+- ES6 and modern JavaScript include new features that improve your code.
+- `let` and `const` provide better variable declarations.
+- Arrow functions offer concise syntax for functions.
+- Template literals allow for easy string interpolation.
+- Destructuring helps unpack values from arrays and objects.
+- Spread and rest operators enhance array and object manipulation.
+- Classes provide a mechanism for object-oriented programming.
+- Modules enable code organization and reusability.
+
+## 7. JavaScript Libraries
+
+JavaScript libraries provide pre-written code that can be used to perform common tasks, saving time and effort and enhancing code efficiency. Libraries improve development speed, and are used for frontend and backend projects.
+
+### Introduction to Libraries
+
+- Libraries consist of collections of reusable functions and objects.
+- They provide solutions for common programming tasks.
+- They can be used with `script` tag or with `import` statements.
+- Popular categories include UI libraries, utility libraries, and data visualization libraries.
+
+### UI Libraries (e.g., React, Angular, Vue.js)
+
+- Used to build user interfaces.
+- Provide reusable UI components, data binding, and state management.
+- Examples include:
+  - **React**: Library for building user interfaces using a component-based approach and virtual DOM.
+  - **Angular**: Framework for building complex applications with dependency injection, templates, and routing.
+  - **Vue.js**: Progressive framework for building single-page applications and user interfaces with templates and reactivity.
+
+```javascript
+// Example: React component
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+```
+
+### Utility Libraries (e.g., Lodash, Underscore)
+
+- Provide helper functions for common tasks.
+- Include functions for array manipulation, object operations, string processing, etc.
+- Examples include:
+  - **Lodash**: Extensive utility library with hundreds of functions for data manipulation.
+  - **Underscore**: Lightweight utility library for functional programming in JavaScript.
+
+```javascript
+// Example: Using Lodash
+const _ = require("lodash");
+console.log(
+  _.map([1, 2, 3], function (num) {
+    return num * 2;
+  })
+); // Output: [2, 4, 6]
+console.log(_.uniq([4, 8, 4])); // Output: [ 4, 8 ]
+```
+
+### Data Visualization Libraries (e.g., Chart.js, D3.js)
+
+- Used to create interactive charts and graphs.
+- Provide APIs for creating various types of charts, such as bar charts, line charts, pie charts, etc.
+- Examples include:
+  - **Chart.js**: Simple library for creating charts using HTML5 canvas.
+  - **D3.js**: Library for manipulating the DOM with data-driven approaches to create complex visualizations.
+
+### How to Use Libraries
+
+- **Include via CDN (content delivery network)**: Add a `<script>` tag that links to the library's hosted file in the HTML file.
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+```
+
+- **Download and use in project**: Download the library's file and include it in the project. Link the library file via script tag or import statement.
+
+```javascript
+import _ from "lodash";
+```
+
+- **Install via package manager**: Install the library using npm or yarn, then import it using `import` or `require`.
+
+```bash
+npm install lodash
+```
+
+```javascript
+import _ from "lodash";
+```
+
+### Key Takeaways for Students
+
+- JavaScript libraries help in development by providing reusable code.
+- Use UI libraries (e.g., React, Angular, Vue.js) to build dynamic user interfaces.
+- Use utility libraries (e.g., Lodash, Underscore) for common tasks.
+- Use data visualization libraries (e.g., Chart.js, D3.js) to create charts and graphs.
+- You can include libraries via CDN or local installations.
+- Explore a few libraries and focus on understanding how to use them.
+
+## Unit 7 Questions for Exam Preparation
+
+---
+
+> **Note** > **Refer to all old and model questions and solve them.**
+> This is crucial for exam preparation as these questions are directly aligned with the syllabus and have been tested in previous exams. Make sure to practice them thoroughly!
+
+---
+
+## **Scope and Closures**
+
+1. Explain the difference between global and local scope in JavaScript.
+2. What is block scope, and how does it differ from **function scope?**
+3. What is a closure in JavaScript? Provide an example.
+4. How can closures be used to create private variables?
+5. Explain how closures are used in callbacks?
+6. What are some practical use cases for closures in web development?
+7. Explain lexical scoping and how it relates to closures.
+8. Differentiate between scope and context with examples. (Spring 2024, Q11)
+9. What are IIFEs and how they are related to scopes?
+
+---
+
+## **Error Handling and Debugging**
+
+1. List and explain three types of errors in JavaScript.
+2. What is the purpose of the `try...catch` statement?
+3. How do you throw custom errors using the `throw` statement?
+4. What is the purpose of the `finally` block in a `try...catch...finally` statement?
+5. Describe three debugging techniques for JavaScript code.
+6. What is a stack trace? How can it be helpful?
+7. Explain different error object properties.
+8. How do you manage different errors using try-catch block?
+
+---
+
+## **DOM Manipulation**
+
+1. What is the DOM?
+2. How is the DOM tree-like structure?
+3. List and describe four methods to select HTML elements in JavaScript.
+4. What is the difference between `innerHTML` and `textContent`?
+5. How do you set inline styles in JavaScript?
+6. How to add and remove css classes using javascript.
+7. How to create a new element in javascript.
+8. How to add events using addEventListener.
+9. What is an event handler? Explain different event handlers?
+10. What is NodeList? Differentiate with HTMLCollection.
+
+---
+
+## **Asynchronous JavaScript**
+
+1. Explain the difference between synchronous and asynchronous code.
+2. What is a callback function?
+3. Explain what a promise is and how it works.
+4. What are the three states of a promise?
+5. What is the purpose of the `async` and `await` keywords?
+6. How do async functions relate to promises?
+7. What is the event loop and how it works?
+8. What is callback hell, and how can you avoid it?
+9. Write an example of how to perform some asynchronous task using callback.
+10. Write an example of how to perform some asynchronous task using Promises and async/await keywords?
+
+---
+
+## **JSON and AJAX**
+
+1. What is JSON, and why is it used in web development?
+2. Explain the difference between `JSON.stringify()` and `JSON.parse()`.
+3. What is AJAX?
+4. How does AJAX help in web development?
+5. Compare `XMLHttpRequest` and `fetch` API for making HTTP requests.
+6. How is JSON used with AJAX?
+7. What are the possible states of request while working with AJAX?
+8. How do you get the status code for a HTTP request?
+9. How do you manage different states of request using javascript?
+10. Write an example to make a fetch call and handle response.
+
+---
+
+## **ES6 and Modern JavaScript**
+
+1. What are the advantages of using `let` and `const` over `var`?
+2. How do arrow functions differ from regular functions?
+3. What are template literals, and why are they useful?
+4. Explain how destructuring works for arrays and objects.
+5. What are spread and rest operators, and how can they be used?
+6. How do classes work in JavaScript?
+7. What are JavaScript modules?
+8. Differentiate between named exports and default exports.
+9. List the new feature of ES6 version of JavaScript. (Spring 2024, Q14a)
+10. Briefly describe ES6. (Fall 2023, Q15)
+
+---
+
+## **JavaScript Libraries**
+
+1. What is a JavaScript library?
+2. Name three common categories of JavaScript libraries and provide an example of each.
+3. Give three examples of popular UI libraries, and list one advantage of each.
+4. Give two examples of utility libraries, and list one advantage of each.
+5. Give two examples of data visualization libraries, and list one advantage of each.
+6. Describe three ways to include a JavaScript library in your project.
+7. Explain some differences between libraries and frameworks in JavaScript?
+8. What is the use of a CDN in Javascript?
+9. What is package manager? How it works?
+10. How to make use of different libraries in Javascript?
+
+---
